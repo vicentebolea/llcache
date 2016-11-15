@@ -1,0 +1,19 @@
+sudo: false
+dist: precise 
+language: cpp
+
+cache:
+ - apt
+ - ccache
+
+addons:
+  apt:
+    packages:
+      - libboost-all-dev
+
+script:
+  - sh autogen.sh
+  - sh ./configure --prefix=`pwd`
+  - make check
+  - make install
+
